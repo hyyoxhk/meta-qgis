@@ -11,11 +11,13 @@ SRC_URI[sha256sum] = "76ed3d0c3a348a6693dfae535e5658bbfd47f71cb7ff7eb96d9f12f7e0
 
 DEPENDS = "sqlite3 sqlite3-native tiff"
 
-inherit autotools pkgconfig lib_package
+inherit cmake pkgconfig lib_package
 
 PACKAGECONFIG ?= "curl"
 
 PACKAGECONFIG[curl] = ",--without-curl,curl"
+
+EXTRA_OECMAKE = "-DBUILD_TESTING=OFF"
 
 FILES:${PN} += "${datadir}/proj"
 
