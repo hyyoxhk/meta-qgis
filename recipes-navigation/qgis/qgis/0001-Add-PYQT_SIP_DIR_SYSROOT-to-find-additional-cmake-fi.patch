@@ -1,0 +1,28 @@
+From 1dc009c0a7396d6fd5bbb45146aefe80653e467e Mon Sep 17 00:00:00 2001
+From: He Yong <hyyoxhk@163.com>
+Date: Tue, 5 Nov 2024 16:19:30 +0800
+Subject: [PATCH] Add PYQT_SIP_DIR_SYSROOT to find additional cmake file
+
+Upstream-Status: Inappropriate [embedded specific]
+
+Signed-off-by: He Yong <hyyoxhk@163.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 71580f6a..e3bc23b6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -942,7 +942,7 @@ if (WITH_CORE AND WITH_BINDINGS AND NOT WITH_QT6)
+   include(PyQtMacros)
+   include(SIPMacros)
+ 
+-  set(SIP_INCLUDES ${PYQT_SIP_DIR} ${CMAKE_SOURCE_DIR}/python)
++  set(SIP_INCLUDES ${PYQT_SIP_DIR_SYSROOT}${PYQT_SIP_DIR}/PyQt5 ${CMAKE_SOURCE_DIR}/python)
+   set(SIP_CONCAT_PARTS 16)
+ 
+   if (NOT BINDINGS_GLOBAL_INSTALL)
+-- 
+2.34.1
+
